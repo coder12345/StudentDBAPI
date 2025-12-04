@@ -100,7 +100,23 @@ def get_all_students():
         }
         for row in rows
     ]
+@app.get("/getstudentsall")
+def get_all_students():
+    cursor, conn = getCursor()
+    cursor.execute("SELECT * FROM Students")
+    rows = cursor.fetchall()
+    return [
+        {
+        "student_id": row[1],
+        "first_name": row[2],
+        "last_name": row[3],
+        "grade": row[4],
+        "credit_hours": row[5],
+        "gpa": float(row[6])
 
+        }
+        for row in rows
+    ]
 @app.get("/getstudent/{student_id}")
 def get_student(student_id: str):
     cursor, conn = getCursor()
