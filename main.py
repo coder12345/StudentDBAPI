@@ -137,7 +137,7 @@ def get_student(student_id: str):
             "last_name": row[3],
             "grade": row[4],
             "credit_hours": row[5],
-            "gpa": str(row[2]))  
+            "gpa": str(row[2]) 
         }
         return student_data
     finally:
@@ -201,5 +201,6 @@ def delete_student(student_id: str):
     finally:
         cursor.close()
         conn.close()
+
 
 
